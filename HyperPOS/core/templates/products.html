@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Products</h1>
+  
+<ul>
+  {% for x in myproducts %}
+    <li>Name: {{ x.name }} ; Price: {{ x.price }}€ ; EAN: {{x.ean}}</li>
+  {% endfor %}
+</ul>
+
+</body>
+</html>
