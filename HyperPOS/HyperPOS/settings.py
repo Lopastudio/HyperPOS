@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "core",
     "management",
+    "authentif",
 ]
 
 MIDDLEWARE = [
@@ -69,6 +70,12 @@ TEMPLATES = [
         },
     },
 ]
+
+
+LOGOUT_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/" #show in presentation
+CSRF_COOKIE_SECURE = True
+
 
 WSGI_APPLICATION = 'HyperPOS.wsgi.application'
 

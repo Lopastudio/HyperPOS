@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN-HyperPOS</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        input {
+            color: black;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white flex items-center justify-center h-screen">
+
+    <div class="max-w-md mx-auto mt-10 p-8 bg-gray-800 rounded-lg shadow-lg text-center">
+        <h2 class="text-2xl font-semibold mb-4">Log In</h2>
+        <form method="post" class="space-y-4">
+            {% csrf_token %}
+            <div class="space-y-4">
+                <p>Username:</p>{{ form.username }}
+                <p>Password:</p>{{ form.password }}
+            </div>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline">Log In</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

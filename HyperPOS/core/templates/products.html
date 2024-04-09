@@ -1,14 +1,19 @@
-<!DOCTYPE html>
-<html>
-<body>
+{% extends "master.html" %}
 
-<h1>Products</h1>
-  
-<ul>
-  {% for x in myproducts %}
-    <li>Name: {{ x.name }} ; Price: {{ x.price }}€ ; EAN: {{x.ean}}</li>
-  {% endfor %}
-</ul>
+{% block title %}
+Products - HyperPOS
+{% endblock %}
 
-</body>
-</html>
+{% block content %}
+<div class="container mx-auto">
+  <ul class="mt-8">
+    {% for x in myproducts %}
+      <li class="mb-4 bg-gray-100 hover:bg-gray-200 rounded-lg p-4">
+        <span class="block font-bold text-gray-800">{{ x.name }}</span>
+        <span class="block text-gray-600">Price: {{ x.price }}€</span>
+        <span class="block text-gray-600">EAN: {{x.ean}}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
