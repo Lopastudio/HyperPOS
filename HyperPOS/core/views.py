@@ -1,10 +1,8 @@
-from django.shortcuts import render, redirect
-from django.contrib import messages
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Product
 from django.http import HttpResponse
 from django.template import loader
 from .models import Product
-from decimal import Decimal
 
 def testing(request):
     return HttpResponse("Hello :)")
@@ -23,15 +21,17 @@ def Products(request):
     return HttpResponse(template.render(context, request))
 
 def atc(request, product_id):
+    # add to cart shit fuck doesnt work :(((
+
+
+def atc_search(request):
     if request.method == 'POST':
-        product = Product.objects.get(ean=product_id)
-        cart = request.session.get('cart', [])
-        cart.append({
-            'name': product.name,
-            'price': float(product.price),
-        })
-        request.session['cart'] = cart
-        messages.success(request, f"{product.name} added to cart.")
-        return redirect('cart_view')
-    else:
-        return redirect('product_list')  # Redirect to product list view
+        ean = request.POST.get('ean_search', None)
+        if ean:
+            try:
+                product = Product.objects.get(ean=ean)
+                return HttpResponse(f"The product name is: {product.name}")
+            except Product.DoesNotExist:
+                return HttpResponse("Product not found.")
+    return HttpResponse("Invalid request.")
+    
