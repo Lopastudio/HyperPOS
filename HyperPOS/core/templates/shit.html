@@ -1,0 +1,43 @@
+<div class="container mx-auto mt-5">
+    <h2 class="text-2xl">Cart</h2>
+    <table id="cart" class="w-full mt-5 table-auto">
+      <thead class="bg-gray-800">
+        <tr>
+          <th class="px-4 py-2">Product Name</th>
+          <th class="px-4 py-2">Price</th>
+          <th class="px-4 py-2">Quantity</th>
+          <th class="px-4 py-2">Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart_items %}
+        <tr class="bg-gray-100 hover:bg-gray-200 rounded-lg">
+          <td class="px-4 py-2 text-gray-800">{{ item.product.name }}</td>
+          <td class="px-4 py-2 text-gray-600 text-center">{{ item.product.price }}€</td>
+          <td class="px-4 py-2 text-gray-600 text-center">
+            {{ item.quantity }}
+          </td>
+          <td class="px-4 py-2 text-center">
+            <a
+              href="{% url 'core:remove_from_cart' item.id %}"
+              class="text-red-500 hover:text-red-700"
+              >Remove</a
+            >
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="5" class="text-center">Your cart is empty.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3" class="text-right">Total:</td>
+          <td id="checkout-total" class="px-4 py-2">${{ total_price }}</td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+
+  </div>

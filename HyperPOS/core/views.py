@@ -1,37 +1,31 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Product
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
-from .models import Product
+from .models import Product, CartItem
 
 def testing(request):
     return HttpResponse("Hello :)")
 
-def home(request):
+def product_list(request):
+    cart_items = CartItem.objects.filter(user=request.user)
+    total_price = sum(item.product.price * item.quantity for item in cart_items)
     products = Product.objects.all()
-    context = {'myproducts': products}
-    return render(request, 'home.html', context)
+    return render(request, 'home.html', {'products': products, 'cart_items': cart_items, 'total_price': total_price})
+  
+def add_to_cart(request, product_id):
+    product = Product.objects.get(id=product_id)
+    cart_item, created = CartItem.objects.get_or_create(product=product, 
+                                                       user=request.user)
+    cart_item.quantity += 1
+    cart_item.save()
+    
+    products = Product.objects.all()
+    return redirect('core:product_list')
+    
 
-def Products(request):
-    products = Product.objects.all().values()
-    template = loader.get_template('products.html')
-    context = {
-      'myproducts': products,
-    }
-    return HttpResponse(template.render(context, request))
+def remove_from_cart(request, item_id):
+    cart_item = CartItem.objects.get(id=item_id)
+    cart_item.delete()
+    return redirect('core:product_list')
 
-def atc(request, product_id):
-    # add to cart shit fuck doesnt work :(((
-
-
-def atc_search(request):
-    if request.method == 'POST':
-        ean = request.POST.get('ean_search', None)
-        if ean:
-            try:
-                product = Product.objects.get(ean=ean)
-                return HttpResponse(f"The product name is: {product.name}")
-            except Product.DoesNotExist:
-                return HttpResponse("Product not found.")
-    return HttpResponse("Invalid request.")
     
