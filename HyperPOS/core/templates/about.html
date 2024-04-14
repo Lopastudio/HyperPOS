@@ -1,0 +1,62 @@
+<!-- prettier-ignore -->
+{% extends "master.html" %}
+<!-- prettier-ignore -->
+{% block title %} About HyperPOS {% endblock %}
+<!-- prettier-ignore -->
+{% block content %}
+<div class="container mx-auto py-12">
+  <div class="max-w-3xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+    <div class="px-6 py-8">
+      <h2 class="text-4xl font-bold text-gray-800 mb-4">About HyperPOS</h2>
+      <h1 class="text-2xl font-bold text-gray-800 mb-2">
+        Written by Patrik Nagy
+      </h1>
+      <br />
+      <p class="text-gray-700 leading-relaxed">
+        HyperPOS is a
+        <span class="font-semibold text-blue-600"
+          >simple, cross-platform, online POS system</span
+        >
+        designed for
+        <span class="font-semibold text-blue-600">ease-of-use</span>. It is
+        written in
+        <span class="font-semibold text-blue-600">Django</span> (Python
+        framework) and FULLY
+        <span class="font-semibold text-blue-600">open-source</span>. It offers
+        a
+        <span class="font-semibold text-blue-600">simple web interface</span>
+        and easy set up. Simple support for EAN code readers is also available.
+      </p>
+      <p class="text-gray-700 leading-relaxed mt-4">HyperPOS Features:</p>
+      <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
+        <li>User-friendly interface for easy navigation and operation.</li>
+        <li>Modern looks.</li>
+        <li>Built-in inventory management</li>
+        <li>Payment statistics</li>
+        <li>Simple setup process</li>
+      </ul>
+      <p class="text-gray-700 leading-relaxed mt-4">
+        Thank you for choosing HyperPOS to power your business. We look forward
+        to helping you succeed!
+      </p>
+      <div class="mt-6">
+        <p class="text-gray-700 leading-relaxed">Legal information:</p>
+        <p class="text-gray-700 leading-relaxed">
+          This project is licensed under the
+          <span class="font-semibold text-blue-600"
+            >GNU General Public License v3.0</span
+          >.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+          Favicon made by:
+          <a
+            href="https://favpng.com/png_user/fabriciovd"
+            class="text-blue-600 underline"
+            >fabriciovd</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

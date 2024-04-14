@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "core",
     "management",
     "authentif",
+    'dashboard',
 ]
 
 MIDDLEWARE = [
@@ -71,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-
+SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
 LOGOUT_REDIRECT_URL = "/"
 LOGIN_REDIRECT_URL = "/" #show in presentation
 CSRF_COOKIE_SECURE = True

@@ -6,12 +6,14 @@ Products - HyperPOS
 
 {% block content %}
 <div class="container mx-auto">
+  <h1 class="mb-4 text-4xl font-extrabold">Products View</h1>
+  <p>Hint: If you want to manage products, you can do that in the "ADMIN" tab.</p>
   <ul class="mt-8">
-    {% for x in myproducts %}
+    {% for product in products %}
       <li class="mb-4 bg-gray-100 hover:bg-gray-200 rounded-lg p-4">
-        <span class="block font-bold text-gray-800">{{ x.name }}</span>
-        <span class="block text-gray-600">Price: {{ x.price }}€</span>
-        <span class="block text-gray-600">EAN: {{x.ean}}</span>
+        <span class="block font-bold text-gray-800">{{ product.name }}</span>
+        <span class="block text-gray-600">Price: {{ product.price }}€</span>
+        <span class="block text-gray-600">EAN: {{product.ean}}</span>
       </li>
     {% endfor %}
   </ul>
