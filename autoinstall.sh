@@ -1,10 +1,13 @@
 pip3 install Django
+sudo apt install python3-Django
 
 cd HyperPOS
 
 sudo rm -rf db.sqlite3
 
 python3 manage.py migrate
+
+python3 manage.py collectstatic
 
 echo "Next, please create a superuser:"
 python3 manage.py createsuperuser
