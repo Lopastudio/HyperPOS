@@ -20,6 +20,8 @@
 ## Documentation
 If you are looking for the code documentation it is available in the `DEVDOCS.MD` file.
 
+### This application is a BETTER version of my older project written in PhP. https://github.com/Lopastudio/LopaPOS
+
 ### Getting started
 1. Download all the nececary files :/
 FISHS DOCS!
